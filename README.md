@@ -27,6 +27,8 @@ Foram testadas quatro configurações distintas:
 
 Durante os testes, variou-se a taxa de geração de requisições (de 5 até 25 requisições por segundo) e foram coletados os tempos médios de resposta (MRT) em cada configuração.
 
+[Link para o vídeo](https://drive.google.com/drive/folders/1e8T7C3jpi6YqQxFrRiBy_Rvhao_9L6c3?usp=sharing)
+
 Abaixo está o gráfico gerado com os resultados obtidos:
 
 ![Gráfico MRT](graficoMRT.png)
