@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  service_ia:
+    build:
+      context: .
+    working_dir: /app
+    command: python service_ia.py
+    ports:
+      - "5003:5003"
+
+  load_balancer1:
+    build:
+      context: .
+    working_dir: /app
+    command: python load_balancer1.py
+    ports:
+      - "5002:5002"
+    depends_on:
+      - service_ia
+
+  load_balancer2:
+    build:
+      context: .
+    working_dir: /app
+    command: python load_balancer2.py
+    ports:
+      - "5005:5005"
+    depends_on:
+      - service_ia
+  source:
+    build:
+      context: .
+    working_dir: /app
+    command: python source.py
+    depends_on:
+      - load_balancer1
+    volumes:
+      - "D:/Pessoal/testes/pasid_validator_python/ia-experiments/logs:/app/logs"
